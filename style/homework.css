@@ -142,7 +142,64 @@ body {
     margin: 4px;
     transition: all 0.3s ease;
 }
-
+.navbar {
+    width: 100%;          /* Takes full screen width */
+    position: fixed;      /* Stays at the top */
+    top: 0;
+    left: 0;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Make sure the links take full width on smaller screens */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+  
+  .menu-toggle {
+    display: none; /* Only needed for smaller screens */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Hidden until the menu toggle is activated */
+      flex-direction: column;
+      position: absolute;
+      top: 100%; /* Position right below navbar */
+      left: 0;
+      width: 100%; /* Full width on small screens */
+      background-color: #333;
+    }
+  
+    .nav-links.show {
+      display: flex; /* Show when toggle is clicked */
+    }
+  
+    .menu-toggle {
+      display: block; /* Display toggle button on smaller screens */
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  }
   /* For smaller screens */
   @media (max-width: 768px) {
     .nav-links {
