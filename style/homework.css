@@ -45,7 +45,6 @@ td:hover{
     color: b;
     border-color: rgb(0, 0, 0);
 }
-
 /* Style for the loading screen */
 #loading-screen {
     position: fixed;
