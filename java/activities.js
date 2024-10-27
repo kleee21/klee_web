@@ -19,7 +19,7 @@ window.addEventListener('load', function() {
   });
 
 
-  function showPopup() {
+   function showPopup() {
     document.getElementById("warningPopup").style.display = "flex";
   }
   
@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
     showPopup();
   });
   
-  // Disable F12 and Ctrl+U
+  // Disable F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, and Ctrl+Shift+K
   document.addEventListener("keydown", function (event) {
     // Detect F12
     if (event.key === "F12") {
@@ -43,6 +43,15 @@ window.addEventListener('load', function() {
   
     // Detect Ctrl+U
     if (event.ctrlKey && event.key === "u") {
+      event.preventDefault();
+      showPopup();
+    }
+  
+    // Detect Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, and Ctrl+Shift+K
+    if (
+      event.ctrlKey && event.shiftKey &&
+      (event.key === "I" || event.key === "J" || event.key === "C" || event.key === "K")
+    ) {
       event.preventDefault();
       showPopup();
     }
