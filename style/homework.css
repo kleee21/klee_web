@@ -6,6 +6,7 @@ h1 {
     margin-bottom: 20px;
 }
 table {
+    border-collapse: separate;
     margin: 0 auto;
     font-size: 12px;
 }
