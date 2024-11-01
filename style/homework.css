@@ -313,7 +313,7 @@ body {
       display: flex;
     }
       
-    /* Optional: Create the X animation for the menu icon */
+    /* X animation for the menu icon */
     .menu-icon.change .bar:nth-child(1) {
         transform: rotate(-50deg) translate(-5.5px, 11px);
     }
