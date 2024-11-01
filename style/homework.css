@@ -6,11 +6,12 @@ h1 {
     margin-bottom: 20px;
 }
 table {
-    border-collapse: separate;
+    
     margin: 0 auto;
     font-size: 12px;
 }
 th, td {
+    border-collapse: separate;
     border: 1px solid rgba(0, 0, 0, 0);
     width: 60px;
     height: 60px;
