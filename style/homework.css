@@ -39,7 +39,7 @@ th {
 td {
     padding: 15px;
     transition-timing-function: ease-in-out;
-    transition: width 2s, height 4s;
+    transition: width 0.5s, height 0.5s;
     transition-delay: 0.5s;
     transition-duration: 0.5s;
 }
