@@ -39,6 +39,7 @@ th {
 td {
     padding: 15px;
     transition: tranform 0.5s ease, color 0.3 ease;
+    transition-delay: 1s;
 }
 
 td:hover{
