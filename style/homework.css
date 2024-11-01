@@ -1,4 +1,4 @@
-body {
+ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
@@ -38,8 +38,8 @@ th {
 
 td {
     padding: 15px;
-    transition-timing-function: ease-in;
     transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
     transition-delay: 1s;
     transition-duration: 0.5s;
 }
