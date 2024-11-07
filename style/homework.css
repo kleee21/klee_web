@@ -34,7 +34,9 @@ th {
 .noble { background-color: #ffccff; }
 .post-transition { background-color: #ffcc66; }
 
-
+.span {
+ border: 0px
+}
 td {
     padding: 15px;
     transition-timing-function: ease-in-out;
