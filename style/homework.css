@@ -24,7 +24,6 @@ th {
     border: 0.5px solid #FFFFFF
 }
 
-/* Element categories */
 .alkali { background-color: #ff6666; }
 .alkaline { background-color: #ffcc99; }
 .transition { background-color: #ffccff; }
@@ -49,7 +48,7 @@ td:hover{
     color: b;
     border-color: rgb(0, 0, 0);
 }
-/* Style for the loading screen */
+/* loading screen */
 #loading-screen {
     position: fixed;
     top: 0;
@@ -64,7 +63,7 @@ td:hover{
     z-index: 9999;
   }
   
-  /* Spinner style */
+  /* Spinner */
   .spinner {
     width: 50px;
     height: 50px;
@@ -79,12 +78,12 @@ td:hover{
     100% { transform: rotate(360deg); }
   }
   
-  /* Page content hidden initially */
+  /* Page content hidden */
   .content {
     display: none;
   }
   
-  /* Show content after the loading screen is hidden */
+  /* Show content */
   body.loaded .content {
     display: block;
   }
@@ -94,7 +93,7 @@ td:hover{
     box-sizing: border-box;
 }
 
-/* Base popup styling */
+/* popup */
 .popup {
     display: none;
     position: fixed;
@@ -109,7 +108,7 @@ td:hover{
     animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
   }
   
-  /* Popup content styling */
+  /* Popup content */
   .popup-content {
     background-color: #fff;
     padding: 30px;
@@ -120,7 +119,7 @@ td:hover{
     animation: scaleUp 0.3s ease-in-out; /* Scale-up animation */
   }
   
-  /* Close button styling */
+  /* Close button */
   .close-btn {
     position: absolute;
     top: 10px;
@@ -150,7 +149,7 @@ td:hover{
     margin-bottom: 20px;
   }
   
-  /* OK button styling */
+  /* OK button */
   button {
     background-color: #a58cf5;
     color: #fff;
