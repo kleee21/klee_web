@@ -37,6 +37,10 @@ th {
 .span {
  border: 0px
 }
+.notes{
+    color: #FFFFFF
+}
+
 td {
     padding: 15px;
     transition-timing-function: ease-in-out;
