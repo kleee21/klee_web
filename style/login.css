@@ -85,8 +85,8 @@ input[type="email"]:focus::placeholder {
     font-size: 1.2rem;
     cursor: pointer;
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 6px;
+    top: 64%;
     transform: translateY(-50%);
     transition: color 0.3s ease;
 }
