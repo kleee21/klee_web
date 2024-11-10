@@ -107,17 +107,10 @@ input[type="email"]:focus::placeholder {
     margin-top: 1rem;
     width: 100%;
     box-sizing: border-box;
-    position: relative;
-    z-index: 1;
 }
 
 .submit-btn:hover {
     background-color: #444;
-}
-
-#message {
-    margin-top: 1rem;
-    font-size: 0.9rem;
 }
 
 a {
@@ -170,6 +163,13 @@ a:hover {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#resetPasswordPopup.show {
+    display: flex;
+    opacity: 1; /* Make it visible with a smooth fade-in */
 }
 
 .popup-content {
