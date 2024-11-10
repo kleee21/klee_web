@@ -13,7 +13,7 @@ function togglePasswordVisibility(event) {
 
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        button.textContent = "🙈";  // Change to an eye-slash emoji or use any text
+        button.textContent = "🙈";  // Change to eye-slash icon
     } else {
         passwordInput.type = "password";
         button.textContent = "👁️";  // Change back to eye icon
@@ -54,6 +54,7 @@ function handleSignup(event) {
         alert("Sign up successful! You can now log in with your new credentials.");
         document.getElementById("signupEmail").value = "";
         document.getElementById("signupPassword").value = "";
+        showLoginForm();
     } else {
         alert("Please fill in both email and password fields.");
     }
@@ -66,7 +67,6 @@ function handleResetPassword(event) {
     const emailInput = document.getElementById("resetEmail").value;
     const newPasswordInput = document.getElementById("resetNewPassword").value;
 
-    // Example validation (you may want to add more robust checks here)
     if (emailInput && newPasswordInput) {
         // Update password in localStorage
         localStorage.setItem("email", emailInput);
@@ -76,7 +76,7 @@ function handleResetPassword(event) {
         document.getElementById("resetEmail").value = "";
         document.getElementById("resetNewPassword").value = "";
 
-        // Optionally, close the popup after successful reset
+        // Close popup after successful reset
         closeResetPasswordPopup();
     } else {
         alert("Please enter both email and new password.");
@@ -87,15 +87,26 @@ function handleResetPassword(event) {
 function showResetPasswordPopup() {
     const popup = document.getElementById("resetPasswordPopup");
     if (popup) {
-        popup.style.display = "flex"; // Show the popup
+        popup.style.display = "flex"; // Make sure the popup is displayed
+        setTimeout(() => {
+            popup.style.opacity = 1; // Make it fully visible with a smooth fade-in
+            popup.style.visibility = "visible"; // Ensure it's visible for the transition
+        }, 10); // Small delay to trigger the transition
     }
 }
 
-// Function to close the Reset Password popup
+
+// Function to close the Reset Password popup with animation
 function closeResetPasswordPopup() {
     const popup = document.getElementById("resetPasswordPopup");
     if (popup) {
-        popup.style.display = "none"; // Hide the popup
+        popup.style.opacity = 0; // Start the fade-out transition
+        popup.style.visibility = "hidden"; // Hide visibility immediately after fade
+
+        // Wait for the fade-out transition to finish before setting display to none
+        setTimeout(() => {
+            popup.style.display = "none"; // Completely hide the popup after fade-out
+        }, 300); // Match the fade-out duration in the CSS
     }
 }
 
@@ -125,7 +136,8 @@ document.getElementById("resetPasswordFormAction").addEventListener("submit", ha
 document.getElementById("signUpLink").addEventListener("click", showSignUpForm);
 document.getElementById("loginLink").addEventListener("click", showLoginForm);
 document.getElementById("forgotPasswordLink").addEventListener("click", showResetPasswordPopup);
-document.getElementById("loginLinkFromReset").addEventListener("click", showLoginForm);
 
 // Add event listener to close Reset Password popup
-document.getElementById("closeResetPasswordPopupBtn").addEventListener("click", closeResetPasswordPopup);
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("closeResetPasswordPopupBtn").addEventListener("click", closeResetPasswordPopup);
+});
