@@ -47,14 +47,14 @@
   }
   
   /* Warning title */
-  h2 {
+  h2.warningPopup {
     color: #333;
     font-size: 24px;
     margin: 0 0 10px;
   }
   
   /* Warning message */
-  p {
+  p.warningPopup {
     color: #555;
     font-size: 16px;
     margin-bottom: 20px;
