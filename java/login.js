@@ -1,3 +1,29 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Pre-fill and store test credentials
+    const testEmail = "ujicoba@gmail.com";
+    const testPassword = "uji";
+
+    const emailInput = document.getElementById("loginEmail");
+    const passwordInput = document.getElementById("loginPassword");
+
+    emailInput.addEventListener("input", () => {
+        if (emailInput.value === testEmail && passwordInput.value === testPassword) {
+            // Save to localStorage to make handleLogin() work
+            localStorage.setItem("email", testEmail);
+            localStorage.setItem("password", testPassword);
+        }
+    });
+
+    passwordInput.addEventListener("input", () => {
+        if (emailInput.value === testEmail && passwordInput.value === testPassword) {
+            // Save to localStorage to make handleLogin() work
+            localStorage.setItem("email", testEmail);
+            localStorage.setItem("password", testPassword);
+        }
+    });
+});
+
+
 // Function to toggle password visibility for Login, Signup, and Reset forms
 function togglePasswordVisibility(event) {
     const button = event.target;
