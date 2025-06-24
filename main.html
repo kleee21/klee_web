@@ -1,52 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel='stylesheet' type='text/css' href='style/profil.css'>
-        <title>Profil Kleon Alfeus</title>
-    </head> 
-    
-    <body>
-        <nav class="navbar">
-            <div class="logo">My Website</div>
-            <ul class="nav-links" id="nav-links">
-              <li><a href="home.html">Home</a></li>
-              <li><a href="hobby.html">About</a></li>
-              <li><a href="tugas.html">Homework</a></li>
-              <li><a href="content.html">Contact</a></li>
-            </ul>
-            <div class="menu-icon" id="menu-icon">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-            </div>
-          </nav>
-        <div id="warningPopup" class="popup">
-        <div class="popup-content">
-          <div class="icon">⚠️</div>
-          <h2>Peringatan!</h2>
-          <p>Jangan Ya Dek Ya</p>
-          <button onclick="closePopup()">Ok</button>
-        </div>
-      </div>
-          <script src="java/profil.js"></script>
-        
-        <center>
-    <div id="main_page">
-        <br>
-        <h1 id="judul"><b>Kleon Alfeus Effendi</b></h1>
-        <a target="_blank" href="https://www.instagram.com/kleon_alfeus21" id="instagram_link">Visit My Instagram!</a>
-        <br><br><br>    
-        <img src="Assets/jikalau.JPG" width="200" alt="ini gambar diri">
-        <img src="Assets/DSCF8749.JPG" width="200" alt="ini gambar diri">
-        </div>
-        <hr>
-        <h2>About Me</h2>
-        </center>
-        <p>Hi there! I’m Kleon Alfeus Effendi, a 14-year-old student currently studying at Talenta High School. I’ve always been drawn to music, and over the years, <i>playing the guitar has become a significant part of my life.</i> I love the feeling of getting lost in the melodies I create and the challenge of mastering new techniques and songs. Music, for me, is more than just a hobby; it’s a way to express emotions that words sometimes can’t capture. Whether I’m strumming my favorite tunes or experimenting with new sounds, the guitar allows me to tap into a deeper creative side. I’ve learned that music can bring people together, and I love the connection I feel when I play for friends or simply jam alone.
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Profil Kleon Alfeus</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS for main page -->
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body class="font-inter bg-gray-900 text-gray-100 min-h-screen relative">
 
-    <br> <br> When I’m not playing guitar, I enjoy immersing myself in all kinds of music, from rock and indie to classical and jazz. Discovering new artists and genres keeps me inspired and fuels my passion for music even more. I believe that music is a universal language that can evoke powerful emotions and tell stories in ways that nothing else can. Beyond just listening, I love analyzing how different elements come together to create something unique and impactful. I’m always eager to learn more, not just about playing instruments, but about music production, songwriting, and the different ways it influences people. Music will always be a central part of who I am, and I look forward to continuing this journey as I grow.</p>
-    </body>
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+
+    <!-- Custom Alert Modal Structure -->
+<div id="customAlertModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <div id="customAlertIcon" class="text-5xl mb-4 text-center"></div> <!-- Dedicated icon element -->
+        <h3 id="customAlertTitle" class="text-xl font-bold mb-4"></h3>
+        <p id="customAlertMessage" class="mb-6"></p>
+        <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
+    </div>
+</div>
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 p-4 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-white"> <a href="main.html">My Website</a></div>
+            <div class="hidden md:flex space-x-6">
+                <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
+                <a href="hobby.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">About</a>
+                <a href="tugas.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Homework</a>
+                <a href="content.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-90 backdrop-blur-md absolute top-full left-0 w-full py-4 transition-all duration-300 ease-in-out opacity-0">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
+                <a href="hobby.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">About</a>
+                <a href="tugas.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Homework</a>
+                <a href="content.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Custom Alert Modal Structure (Replaces warningPopup) -->
+    <div id="customAlertModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <h3 id="customAlertTitle" class="text-xl font-bold mb-4"></h3>
+            <p id="customAlertMessage" class="mb-6"></p>
+            <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
+        </div>
+    </div>
+
+    <main class="relative z-10 pt-24 pb-12 px-4 md:px-8 lg:px-16 container mx-auto">
+        <div id="main_page" class="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-xl backdrop-blur-sm text-center">
+            <h1 id="judul" class="text-4xl md:text-5xl font-extrabold mb-4 text-white animate-fade-in">
+                <span class="text-blue-400">Kleon Alfeus Effendi</span>
+            </h1>
+            <p class="text-lg text-gray-300 mb-6 animate-fade-in delay-200">
+                A passionate student and Web developers.
+            </p>
+            <a target="_blank" href="https://www.instagram.com/kleon_alfeus21" id="instagram_link"
+               class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                Visit My Instagram!
+            </a>
+            <div class="flex flex-wrap justify-center gap-6 mt-12 mb-10">
+                <img src="Assets/DSCF8749.JPG" alt="Placeholder Image 1" class="w-48 h-48 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 animate-slide-in-left">
+                <img src="Assets/jikalau.JPG" alt="Placeholder Image 2" class="w-48 h-48 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 animate-slide-in-right">
+            </div>
+            <hr class="border-gray-700 my-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white animate-fade-in delay-400">About Me</h2>
+            <p class="text-md md:text-lg leading-relaxed text-gray-200 text-left animate-fade-in delay-600">
+                Hi there! I’m Kleon Alfeus Effendi, a 16-year-old student currently studying at Talenta High School. I’ve always been drawn to music, and over the years, <i class="text-blue-300">playing the guitar has become a significant part of my life.</i> I love the feeling of getting lost in the melodies I create and the challenge of mastering new techniques and songs. Music, for me, is more than just a hobby; it’s a way to express emotions that words sometimes can’t capture. Whether I’m strumming my favorite tunes or experimenting with new sounds, the guitar allows me to tap into a deeper creative side. I’ve learned that music can bring people together, and I love the connection I feel when I play for friends or simply jam alone.
+                <br><br>
+                When I’m not playing guitar, I enjoy immersing myself in all kinds of music, from rock and indie to classical and jazz. Discovering new artists and genres keeps me inspired and fuels my passion for music even more. I believe that music is a universal language that can evoke powerful emotions and tell stories in ways that nothing else can. Beyond just listening, I love analyzing how different elements come together to create something unique and impactful. I’m always eager to learn more, not just about playing instruments, but about music production, songwriting, and the different ways it influences people. Music will always be a central part of who I am, and I look forward to continuing this journey as I grow.
+            </p>
+        </div>
+    </main>
+
+    <!-- External JavaScript -->
+    <script src="java/main.js"></script>
+</body>
 </html>
-<!--Jangan copas ya dek ya-->
