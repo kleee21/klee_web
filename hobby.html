@@ -1,86 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel='stylesheet' type='text/css' href='style/activities.css'>
-        <title>hobby</title>
-    </head>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>My Hobby - Kleon Alfeus</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS for hobby page -->
+    <link rel="stylesheet" href="style/hobby.css">
+</head>
+<body class="font-inter bg-gray-900 text-gray-100 min-h-screen relative">
 
-    <body>
-        <div id="loading-screen">
-        <div class="spinner"></div>
-        <p style="color: black;">Loading, please wait...</p>
-      </div>
-    
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
 
-      <nav class="navbar">
-        <div class="logo"><a style="color: #FFFFFF" href="main.html" id="nav-links">My Website</a></div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="tugas.html">Homework</a></li>
-          <li><a href="content.html">Contact</a></li>
-        </ul>
-        <div class="menu-icon" id="menu-icon">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
-    <div id="warningPopup" class="popup">
-        <div class="popup-content">
-          <div class="icon">⚠️</div>
-          <h2>Peringatan!</h2>
-          <p>Jangan Ya Dek Ya</p>
-          <button onclick="closePopup()">Ok</button>
-        </div>
-      </div>
-      <script src="java/activities.js"></script>
-
-        <center>
-            <br>
-
-            <div class="container">
-           <h2>My Hobby</h2>
-        <br>    
-        <img src="https://play-guitars.com/wp-content/uploads/2019/03/electric-guitar-for-beginners-01.jpg" width="400" height="237" alt="orang main gitar">
-       </center>
-       <hr>
-        <h3>hobi saya bermain gitar</h3> 
-        <p>gitar adalah alat musik berdawai yang dimainkan dengan cara <u>dipetik</u>, umumnya menggunakan <sup>jari</sup> maupun <sub>plektrum</sub>. </p>
-        <h3>yang diperlukan untuk menunjang hobi saya</h3>
-        <ol>
-        <li> 
-            <b>gitar</b>
-            : Karena saya hobby bermain gitar, saya pastinya memiliki gitar. Saya memiliki <u>1 buah gitar bermerek Yamaha dengan <a target="_blank" href="https://id.yamaha.com/id/products/contents/guitars_basses/fx400/index.html" id="gitar_link">tipe FX400</a></u> <br>
-            <img src="https://nuansamusik.com/cdn/shop/files/FX400NSskuweb.png?v=1692884839" width="200" alt="ini gitar saya">
-        </li>
-        <li>
-            <b>pick guitar</b>
-            : saat bermain gitar, saya pun mengandalkan pick gitar sebagai penunjang saya ketika bermain gitar. <u>saya mempunyai beberapa pick gitar diantaranya bermerek alice dan legacy</u> <br>
-            <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/5/15/b8d202b4-4ad4-4e1f-b6b8-8054880de76e.jpg" width="200" alt="ini pick gitar alice">
-            <img src="https://images.tokopedia.net/img/cache/250-square/VqbcmM/2020/7/16/e6891fa9-447c-4b87-9b45-687ba9541c26.jpg" width="200" alt="ini pick gitar legacy">
-        </li>
-        <li> 
-            <b>capo</b>
-            : saat bermain gitar, saya pun mengandalkan capo sebagai penunjang saya ketika bermain gitar. <br>
-            <img src="https://jadistore.com/wp-content/uploads/2021/10/capo-gitar-aluminum-alloy-wood-design-with-bridge-pin-remover.jpg" width="200" alt="ini capo">
-        </li>
-        <li> 
-            <b>strap</b>
-            :  saat bermain gitar, saya pun mengandalkan strap sebagai penunjang saya ketika bermain gitar. strap ini berfungsi untuk menggantungkan gitar ke tubuh sehingga saya tidak perlu terus memegangnya saat bermain dengan posisi berdiri. <br>
-            <img src="https://www.megah.co.id/cdn/shop/products/WhatsAppImage2022-01-22at11.30.02.jpg?v=1642829440" width="200" alt="ini strap">
-        </li>
-        <li>
-            <b>Senar</b>
-            : saat bermain gitar, ada kalanya senar gitar putus maka dari itu saya harus menyiapkan senar cadangan untuk menggantikan senar yang putus tersebut.<br>
-            <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lxhsaocdxwm3f1" width="200" alt="senar gitar saya">
-        </li>
-        </ol>
-        <h3>mengapa Bermain Gitar itu Menyenangkan?</h3>
-        <p>Bermain gitar menyenangkan karena memungkinkan Anda mengekspresikan diri secara kreatif sambil meningkatkan koordinasi dan konsentrasi. Saat Anda mempelajari lagu dan teknik baru, Anda akan merasakan pencapaian dan pertumbuhan pribadi. Baik bermain sendiri atau bersama teman, kemampuan untuk menciptakan musik menambah kebahagiaan dalam hidup dan membantu Anda rileks. Selain itu, ini adalah cara yang bagus untuk mengeksplorasi berbagai gaya musik dan terhubung dengan orang lain yang memiliki minat yang sama.</p>
+    <!-- Custom Alert Modal Structure -->
+<div id="customAlertModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <div id="customAlertIcon" class="text-5xl mb-4 text-center"></div> <!-- Dedicated icon element -->
+        <h3 id="customAlertTitle" class="text-xl font-bold mb-4"></h3>
+        <p id="customAlertMessage" class="mb-6"></p>
+        <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
     </div>
-    </body>
+</div>
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 p-4 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-white"> <a href="main.html">My Website</a></div>
+            <div class="hidden md:flex space-x-6">
+                <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
+                <a href="#" class="text-blue-300 hover:text-blue-200 transition duration-200 ease-in-out">About</a>
+                <a href="tugas.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Homework</a>
+                <a href="content.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-90 backdrop-blur-md absolute top-full left-0 w-full py-4 transition-all duration-300 ease-in-out opacity-0">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
+                <a href="#" class="text-blue-300 hover:text-blue-200 transition duration-200 ease-in-out">About</a>
+                <a href="tugas.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Homework</a>
+                <a href="content.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Custom Alert Modal Structure -->
+    <div id="customAlertModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <h3 id="customAlertTitle" class="text-xl font-bold mb-4"></h3>
+            <p id="customAlertMessage" class="mb-6"></p>
+            <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
+        </div>
+    </div>
+
+    <main class="relative z-10 pt-24 pb-12 px-4 md:px-8 lg:px-16 container mx-auto">
+        <div class="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-xl backdrop-blur-sm text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-white animate-fade-in">My Hobby</h2>
+            <img src="https://placehold.co/600x350/2d3748/a0aec0?text=Playing+Guitar" alt="person playing guitar"
+                 class="w-full md:w-3/4 lg:w-2/3 mx-auto rounded-lg shadow-md mb-8 transform hover:scale-105 transition-transform duration-300 animate-fade-in delay-200">
+
+            <hr class="border-gray-700 my-10">
+
+            <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white text-left animate-fade-in delay-300">My Hobby: Playing Guitar</h3>
+            <p class="text-md md:text-lg leading-relaxed text-gray-200 text-left mb-8 animate-fade-in delay-400">
+                A guitar is a stringed musical instrument played by <u class="text-blue-300">plucking</u>, generally using <sup class="text-yellow-300">fingers</sup> or a <sub class="text-red-300">plectrum</sub>.
+            </p>
+
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white text-left animate-fade-in delay-500">Essentials for My Hobby</h3>
+            <ol class="list-decimal list-inside space-y-6 text-lg text-gray-200 text-left pl-0 md:pl-4">
+                <li class="animate-fade-in delay-600">
+                    <b class="text-green-300">Guitar</b>: Since I love playing the guitar, I naturally own one. I have <u class="text-blue-300">1 Yamaha guitar, model <a target="_blank" href="https://id.yamaha.com/id/products/contents/guitars_basses/fx400/index.html" class="text-blue-400 hover:underline">FX400</a></u>.
+                    <br>
+                    <img src="https://placehold.co/200x150/2d3748/a0aec0?text=Yamaha+FX400" alt="my yamaha guitar" class="w-40 h-auto rounded-md shadow-sm mt-2">
+                </li>
+                <li class="animate-fade-in delay-700">
+                    <b class="text-green-300">Guitar Picks</b>: When playing, I rely on guitar picks. <u class="text-blue-300">I have several picks, including Alice and Legacy brands</u>.
+                    <br>
+                    <img src="https://placehold.co/150x150/2d3748/a0aec0?text=Alice+Pick" alt="alice guitar pick" class="w-32 h-auto rounded-md shadow-sm mt-2 inline-block mr-4">
+                    <img src="https://placehold.co/150x150/2d3748/a0aec0?text=Legacy+Pick" alt="legacy guitar pick" class="w-32 h-auto rounded-md shadow-sm mt-2 inline-block">
+                </li>
+                <li class="animate-fade-in delay-800">
+                    <b class="text-green-300">Capo</b>: I also use a capo when playing guitar.
+                    <br>
+                    <img src="https://placehold.co/200x150/2d3748/a0aec0?text=Guitar+Capo" alt="my capo" class="w-40 h-auto rounded-md shadow-sm mt-2">
+                </li>
+                <li class="animate-fade-in delay-900">
+                    <b class="text-green-300">Strap</b>: When playing guitar, I rely on a strap to hold the guitar, so I don't have to continuously hold it while playing standing up.
+                    <br>
+                    <img src="https://placehold.co/200x150/2d3748/a0aec0?text=Guitar+Strap" alt="my strap" class="w-40 h-auto rounded-md shadow-sm mt-2">
+                </li>
+                <li class="animate-fade-in delay-1000">
+                    <b class="text-green-300">Strings</b>: Sometimes guitar strings break, so I always keep spare strings to replace broken ones.
+                    <br>
+                    <img src="https://placehold.co/200x150/2d3748/a0aec0?text=Guitar+Strings" alt="my guitar strings" class="w-40 h-auto rounded-md shadow-sm mt-2">
+                </li>
+            </ol>
+
+            <hr class="border-gray-700 my-10">
+
+            <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white text-left animate-fade-in delay-1100">Why is Playing Guitar Fun?</h3>
+            <p class="text-md md:text-lg leading-relaxed text-gray-200 text-left animate-fade-in delay-1200">
+                Playing guitar is enjoyable because it allows you to express yourself creatively while improving coordination and concentration. As you learn new songs and techniques, you'll feel a sense of accomplishment and personal growth. Whether playing alone or with friends, the ability to create music adds joy to life and helps you relax. Additionally, it's a great way to explore various musical styles and connect with others who share the same interest.
+            </p>
+        </div>
+    </main>
+
+    <!-- External JavaScript -->
+    <script src="java/hobby.js"></script>
+</body>
 </html>
-<!--Jangan copas ya dek ya-->
