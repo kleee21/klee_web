@@ -3,57 +3,98 @@
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel='stylesheet' type='text/css' href='style/tugas.css'>
-        <title>Tugast</title>
+        <title>Homework - Kleon Alfeus</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Google Fonts for Inter -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- External CSS for tugas page -->
+        <link rel="stylesheet" href="style/tugas.css">
     </head>
 
-    <body>
-        <div id="loading-screen">
-            <div class="spinner"></div>
-            <p style="color: #000000">Loading, please wait...</p>
-          </div>
-        
-    
-          <nav class="navbar">
-            <div class="logo"><a style="color: #FFFFFF" href="main.html" id="nav-links">My Website</a></div>
-            <ul class="nav-links" id="nav-links">
-              <li><a href="home.html">Home</a></li>
-              <li><a href="hobby.html">About</a></li>
-              <li><a href="#">Homework</a></li>
-              <li><a href="content.html">Contact</a></li>
-            </ul>
-            <div class="menu-icon" id="menu-icon">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
+    <body class="font-inter bg-gray-900 text-gray-100 min-h-screen relative">
+
+        <!-- Animated Background -->
+        <div class="animated-background"></div>
+
+        <!-- Custom Alert Modal Structure -->
+        <div id="customAlertModal" class="custom-modal">
+            <div class="custom-modal-content">
+                <div id="customAlertIcon" class="text-5xl mb-4 text-center"></div> <!-- Dedicated icon element -->
+                <h3 id="customAlertTitle" class="text-xl font-bold mb-4"></h3>
+                <p id="customAlertMessage" class="mb-6"></p>
+                <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
             </div>
-          </nav>
-        <div id="warningPopup" class="popup">
-        <div class="popup-content">
-          <div class="icon">⚠️</div>
-          <h2>Peringatan!</h2>
-          <p>Jangan Ya Dek Ya</p>
-          <button onclick="closePopup()">Ok</button>
         </div>
-      </div>
-          <script src="java/tugas.js"></script>
     
-        <center>
-            <br>
-        <b><h1>Codingan Yang Sudah Saya Kerjakan selama SMA</h1></b>
-        </center>
-        <div id="lang-link">
-        <ol>
-            <li>
-                <b><a style="color:rgba(0, 191, 255, 0.819)" target="_blank"  href="https://kleee21.github.io/profil-website/profil_kleon.html">Profil diri</a> <i>Membuat wbsite sederhana tentang diri sendiri</i></b>
-            </li>
-            <li>
-                <b><a style="color:rgba(0, 191, 255, 0.819)" href="homework.html">Tabel Periodik</a> <i>Membuat Tabel Periodik menggunakan HTML</i></b>
-            </li>
-        </ol>
+        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 p-4 transition-all duration-300 ease-in-out">
+          <div class="container mx-auto flex justify-between items-center">
+              <div class="text-xl font-bold text-white"> <a href="main.html">My Website</a></div>
+              <div class="hidden md:flex space-x-6">
+                  <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
+                  <a href="hobby.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">About</a>
+                  <a href="tugas.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Homework</a>
+                  <a href="content.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Contact</a>
+              </div>
+              <div class="md:hidden">
+                  <button id="menu-button" class="text-white focus:outline-none">
+                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-90 backdrop-blur-md absolute top-full left-0 w-full py-4 transition-all duration-300 ease-in-out opacity-0">
+              <div class="flex flex-col items-center space-y-4">
+                  <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
+                  <a href="hobby.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">About</a>
+                  <a href="tugas.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Homework</a>
+                  <a href="content.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Contact</a>
+              </div>
+          </div>
+      </nav>
+    
+        <!-- Custom Alert Modal Structure -->
+        <div id="customAlertModal" class="custom-modal">
+            <div class="custom-modal-content">
+                <h3 id="customAlertTitle" class="text-xl font-bold mb-4"></h3>
+                <p id="customAlertMessage" class="mb-6"></p>
+                <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
+            </div>
         </div>
-        <h3>dan masih banyak lagi</h3>
+    
+        <main class="relative z-10 pt-24 pb-12 px-4 md:px-8 lg:px-16 container mx-auto">
+            <div class="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-xl backdrop-blur-sm text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-white animate-fade-in">
+                    Coding Assignments I've Done in High School
+                </h1>
+                <div id="lang-link" class="text-left">
+                    <ol class="list-decimal list-inside space-y-6 text-lg text-gray-200 pl-0 md:pl-4">
+                        <li class="animate-fade-in delay-200">
+                            <b class="text-blue-300"><a target="_blank" href="https://kleee21.github.io/profil-website/profil_kleon.html" class="text-blue-400 hover:underline">Personal Profile (deleted)</a></b>
+                            <i class="text-gray-400"> - Creating a simple website about myself</i>
+                        </li>
+                        <li class="animate-fade-in delay-300">
+                            <b class="text-blue-300"><a href="homework.html" class="text-blue-400 hover:underline">Periodic Table</a></b>
+                            <i class="text-gray-400"> - Creating a Periodic Table using HTML</i>
+                        </li>
+                        <li class="animate-fade-in delay-300">
+                            <b class="text-blue-300"><a target="_blank" href="https://kleee21.github.io/Ensiklopedia-Kerajaan-Aceh/" class="text-blue-400 hover:underline">Aceh History</a></b>
+                            <i class="text-gray-400"> - Creating a Kerajaan Aceh History using framework </i>
+                        </li>
+                    </ol>
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold mt-10 text-white animate-fade-in delay-400">
+                    and many more to come!
+                </h3>
+                <p class="text-sm text-gray-400 mt-8 animate-fade-in delay-500">
+                    Follow my GitHub: <a href="https://github.com/kleee21" target="_blank" class="text-blue-400 hover:underline">https://github.com/kleee21</a>
+                </p>
+            </div>
+        </main>
+    
+        <!-- External JavaScript -->
+        <script src="java/tugas.js"></script>
     </body>
 </html>
-
-<!--follow github : https://github.com/kleee21-->
