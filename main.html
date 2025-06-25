@@ -38,13 +38,16 @@
             <div class="md:hidden">
                 <button id="menu-button" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <!-- These paths will be animated to form an 'X' -->
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
                     </svg>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-90 backdrop-blur-md absolute top-full left-0 w-full py-4 transition-all duration-300 ease-in-out opacity-0">
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 bg-opacity-90 backdrop-blur-md absolute top-full left-0 w-full py-4">
             <div class="flex flex-col items-center space-y-4">
                 <a href="home.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">Home</a>
                 <a href="hobby.html" class="text-white hover:text-blue-300 transition duration-200 ease-in-out">About</a>
@@ -53,6 +56,7 @@
             </div>
         </div>
     </nav>
+
 
     <!-- Custom Alert Modal Structure (Replaces warningPopup) -->
     <div id="customAlertModal" class="custom-modal">
@@ -88,6 +92,58 @@
             </p>
         </div>
     </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 relative overflow-hidden">
+        <!-- Animated Footer Background Element -->
+        <div class="footer-bg-animation absolute inset-0 z-0"></div>
+    
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <!-- Copyright and Info -->
+                <div class="mb-4 md:mb-0 animate-fade-in delay-100">
+                    <p>&copy; 2024 Kleon Alfeus Site. All rights reserved.</p>
+                    <p class="text-sm mt-1">Designed with passion and code.</p>
+                </div>
+    
+                <!-- Navigation Links -->
+                <div class="flex flex-wrap justify-center md:justify-end space-x-6 mb-4 md:mb-0 animate-fade-in delay-200">
+                    <a href="home.html" class="hover:text-white transition duration-200">Home</a>
+                    <a href="hobby.html" class="hover:text-white transition duration-200">About</a>
+                    <a href="tugas.html" class="hover:text-white transition duration-200">Homework</a>
+                    <a href="content.html" class="hover:text-white transition duration-200">Contact</a>
+                </div>
+    
+                <!-- Social Media Icons -->
+                <div class="flex justify-center space-x-4 animate-fade-in delay-300">
+                    <a href="https://www.instagram.com/kleon_alfeus21" target="_blank" class="text-pink-500 hover:text-pink-400 transform hover:scale-125 transition-all duration-300">
+                        <!-- Instagram SVG Icon (Lucide-react inspired) -->
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.179.074.499.083.712.162.925.317.319.245.567.509.814.814.155.213.234.426.317.925.061.395.074.749.074 3.18 0 2.655-.013 3.009-.074 3.404-.083.498-.162.712-.317.925-.245.319-.509.567-.814.814-.213.155-.426.234-.925.317-.395.061-.749.074-3.18.074-2.655 0-3.009-.013-3.404-.074-.498-.083-.712-.162-.925-.317-.319-.245-.567-.509-.814-.814-.155-.213-.234-.426-.317-.925-.061-.395-.074-.749-.074-3.18 0-2.43.013-2.784.074-3.179.083-.499.162-.712.317-.925.245-.319.509-.567.814-.814.213.155.426.234.925.317.395.061.749.074 3.18-.074zm0-1.5c-2.717 0-3.056.01-3.477.072-.498.084-.818.195-1.144.331-.328.14-.627.3-.923.491-.399.255-.719.561-.996.837-.276.276-.582.596-.837.996-.191.296-.351.595-.491.923-.136.326-.247.646-.331 1.144-.062.421-.072.76-.072 3.477s.01 3.056.072 3.477c.084.498.195.818.331 1.144.14.328.3.627.491.923.255.399.561.719.837.996.276.276.596.582.996.837.296.191.595.351.923.491.326.136.646.247 1.144.331.421.062.76.072 3.477.072s3.056-.01 3.477-.072c.498-.084.818-.195 1.144-.331.328-.14.627-.3.923-.491.399-.255.719-.561.996-.837.276-.276.582-.596.837-.996.191-.296.351-.595.491-.923.136-.326.247-.646.331-1.144.062-.421.072-.76.072-3.477s-.01-3.056-.072-3.477c-.084-.498-.195-.818-.331-1.144-.14-.328-.3-.627-.491-.923-.255-.399-.561-.719-.837-.996-.276-.276-.582-.596-.996-.837-.296-.191-.595-.351-.923-.491-.326-.136-.646-.247-1.144-.331-.421-.062-.76-.072-3.477-.072zm0 4.51c-.707 0-1.283.576-1.283 1.283s.576 1.283 1.283 1.283 1.283-.576 1.283-1.283-.576-1.283-1.283-1.283zm0 2.126c-1.895 0-3.433-1.537-3.433-3.433 0-1.896 1.538-3.433 3.433-3.433 1.896 0 3.433 1.537 3.433 3.433 0 1.896-1.537 3.433-3.433 3.433zm5.337-5.337a.978.978 0 00-.978-.978.978.978 0 00-.978.978c0 .54.438.978.978.978s.978-.438.978-.978z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="text-blue-400 hover:text-blue-300 transform hover:scale-125 transition-all duration-300">
+                        <!-- Twitter SVG Icon (Lucide-react inspired) -->
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.007-.532A8.318 8.318 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 10.41c-.02.016-.039.032-.06.046a4.109 4.109 0 003.737 4.072 4.083 4.083 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.188a11.644 11.644 0 006.29 1.84z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/kleee21" target="_blank" class="text-gray-400 hover:text-gray-300 transform hover:scale-125 transition-all duration-300">
+                        <!-- GitHub SVG Icon (Lucide-react inspired) -->
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.007.07 1.532 1.03 1.532 1.03.89 1.529 2.342 1.085 2.91.828.092-.644.355-1.085.645-1.334-2.22-.253-4.555-1.113-4.555-4.93 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.097-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.202 2.398.099 2.651.64.698 1.028 1.591 1.028 2.682 0 3.829-2.339 4.67-4.566 4.921.357.307.676.91.676 1.854 0 1.334-.012 2.41-.012 2.727 0 .267.18.59.688.482C19.137 20.198 22 16.442 22 12.017 22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Back to Top Button -->
+        <button id="backToTopBtn" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out opacity-0 translate-y-4 hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path>
+            </svg>
+        </button>
+    </footer>
 
     <!-- External JavaScript -->
     <script src="java/main.js"></script>
