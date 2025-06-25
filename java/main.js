@@ -1,23 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.getElementById("navbar");
-  const menuButton = document.getElementById("menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
+    const navbar = document.getElementById("navbar");
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-  // Navbar scroll effect
-  window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) { // When scrolled down 50px
-          navbar.classList.add("bg-gray-800", "bg-opacity-80", "backdrop-blur-md", "shadow-lg");
-      } else {
-          navbar.classList.remove("bg-gray-800", "bg-opacity-80", "backdrop-blur-md", "shadow-lg");
-      }
-  });
+    // Add initial fade-in animation for the navbar on page load
+    // We add and then immediately remove an opacity-0 class to trigger a CSS transition
+    // Ensure that #navbar has `transition-opacity duration-700 ease-out` in its CSS or Tailwind classes for this to work.
+    navbar.classList.add('opacity-0');
+    setTimeout(() => {
+        navbar.classList.remove('opacity-0');
+    }, 100); // Small delay to ensure CSS registers initial state for transition
 
-  // Mobile menu toggle
-  menuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-      mobileMenu.classList.toggle("opacity-0");
-      mobileMenu.classList.toggle("opacity-100");
-  });
+    // Navbar scroll effect (blurring)
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) { // When scrolled down 50px
+            navbar.classList.add("bg-gray-800", "bg-opacity-80", "backdrop-blur-md", "shadow-lg");
+        } else {
+            navbar.classList.remove("bg-gray-800", "bg-opacity-80", "backdrop-blur-md", "shadow-lg");
+        }
+    });
+
+    // Mobile menu toggle and hamburger to X animation
+    menuButton.addEventListener("click", () => {
+        // Toggle the 'is-open' class for mobile menu animation (max-height, opacity)
+        mobileMenu.classList.toggle("is-open");
+        // Toggle the 'menu-open' class for hamburger icon animation (path transforms)
+        menuButton.classList.toggle("menu-open");
+
+        const mobileMenuItems = mobileMenu.querySelectorAll('a');
+
+        if (mobileMenu.classList.contains("is-open")) {
+            // If opening, ensure 'hidden' is removed immediately to allow transitions to start
+            mobileMenu.classList.remove("hidden");
+
+            // Staggered animation for menu items
+            mobileMenuItems.forEach((item, index) => {
+                // Remove existing opacity/transform classes to reset for animation
+                item.classList.remove('opacity-0', 'translate-y-4');
+                // Add base transition classes if not already present
+                item.classList.add('transition-all', 'duration-300', 'ease-out');
+
+                // Apply animation with staggered delay
+                setTimeout(() => {
+                    item.classList.add('opacity-100', 'translate-y-0');
+                }, 50 * index); // Stagger by 50ms per item
+            });
+
+        } else {
+            // If closing, reverse animation immediately for items, then add 'hidden' after menu transition
+            mobileMenuItems.forEach((item) => {
+                item.classList.remove('opacity-100', 'translate-y-0');
+                item.classList.add('opacity-0', 'translate-y-4');
+            });
+
+            setTimeout(() => {
+                mobileMenu.classList.add("hidden");
+            }, 300); // This delay should match the CSS transition duration for max-height/opacity
+        }
+    });
 
   // Custom Alert Modal Functions
   function showAlert(title, message) {
@@ -132,3 +172,34 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('contextmenu', preventDevTools);
     document.addEventListener('keydown', preventDevTools);
     // --- DevTools Warning End ---
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const backToTopBtn = document.getElementById("backToTopBtn");
+    
+        // Show/hide back-to-top button based on scroll position
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopBtn.classList.remove("opacity-0", "translate-y-4", "hidden");
+                backToTopBtn.classList.add("opacity-100", "translate-y-0");
+            } else {
+                backToTopBtn.classList.remove("opacity-100", "translate-y-0");
+                backToTopBtn.classList.add("opacity-0", "translate-y-4");
+                // Add 'hidden' after transition completes to prevent interaction
+                setTimeout(() => {
+                    if (backToTopBtn.classList.contains("opacity-0")) {
+                        backToTopBtn.classList.add("hidden");
+                    }
+                }, 300); // Matches transition duration
+            }
+        });
+    
+        // Scroll to top when button is clicked
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+    
