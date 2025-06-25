@@ -171,3 +171,76 @@ body {
 .custom-modal-close-btn:hover {
   background-color: #64748b;
 }
+
+
+/* Footer specific styles */
+.footer-bg-animation {
+  background: linear-gradient(45deg, #2d3748, #4a5568);
+  background-size: 200% 200%;
+  animation: footerGradientAnimation 10s ease infinite alternate;
+}
+
+@keyframes footerGradientAnimation {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Base animations for content fade-in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply delay classes (re-using previous definitions for consistency) */
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+  opacity: 0; /* Hidden initially */
+}
+
+.animate-fade-in.delay-100 { animation-delay: 0.1s; }
+.animate-fade-in.delay-200 { animation-delay: 0.2s; }
+.animate-fade-in.delay-300 { animation-delay: 0.3s; }
+/* Add more delay classes as needed for other elements if you apply this in other places */
+
+
+/* Navbar specific styles */
+#navbar {
+  /* Tailwind classes handle most styling, but add custom transitions here if needed */
+  transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* --- Mobile Navbar Animation & Hamburger to X --- */
+/* Base state for mobile menu - hidden by default, with transition properties */
+#mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Open state for mobile menu */
+#mobile-menu.is-open {
+  max-height: 500px; /* A sufficiently large value to accommodate content */
+  opacity: 1;
+}
+
+/* Hamburger icon animation */
+#menu-button svg path {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform-origin: center; /* Ensures rotation is centered */
+}
+
+/* Top bar of hamburger becomes top part of X */
+#menu-button.menu-open svg path:nth-child(1) {
+  transform: translateY(0px) rotate(45deg);
+}
+
+/* Middle bar of hamburger fades out */
+#menu-button.menu-open svg path:nth-child(2) {
+  opacity: 0;
+}
+
+/* Bottom bar of hamburger becomes bottom part of X */
+#menu-button.menu-open svg path:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
