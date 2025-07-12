@@ -244,3 +244,83 @@ body {
 #menu-button.menu-open svg path:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
+/* Styling untuk bentuk SVG */
+        .squid-game-shape {
+            fill: none;
+            stroke: white;
+            stroke-width: 4; /* Lebar stroke SVG */
+            stroke-linecap: round; /* Agar ujung garis lebih halus */
+            /* Transisi untuk properti stroke agar perubahan lebih halus */
+            transition: stroke-dasharray 0.7s ease-out, stroke-dashoffset 0.7s ease-out;
+        }
+
+        /* Animasi untuk persentase dan efek glow pada teks */
+        .loading-text-percentage {
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* Animasi glow untuk bentuk SVG */
+        .shape-glow-effect {
+            animation: shape-glow 2s infinite alternate;
+        }
+
+        @keyframes shape-glow {
+            0% {
+                filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+            }
+            100% {
+                filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+            }
+        }
+
+        /* --- Keyframes untuk Efek Garis Menghilang/Muncul Kembali --- */
+        /* Animasi untuk lingkaran */
+        .circle-shape-animation {
+            animation: circle-draw-erase 3s infinite linear;
+        }
+        @keyframes circle-draw-erase {
+            0% { stroke-dasharray: 0 188.5; stroke-dashoffset: 0; }
+            25% { stroke-dasharray: 47.125 141.375; stroke-dashoffset: 0; }
+            50% { stroke-dasharray: 94.25 94.25; stroke-dashoffset: -47.125; }
+            75% { stroke-dasharray: 141.375 47.125; stroke-dashoffset: -94.25; }
+            100% { stroke-dasharray: 188.5 0; stroke-dashoffset: -141.375; }
+        }
+
+        /* Animasi untuk segitiga */
+        .triangle-shape-animation {
+            animation: triangle-draw-erase 3s infinite linear;
+        }
+        @keyframes triangle-draw-erase {
+            0% { stroke-dasharray: 0 176.62; stroke-dashoffset: 0; }
+            33% { stroke-dasharray: 58.87 117.75; stroke-dashoffset: 0; }
+            66% { stroke-dasharray: 117.75 58.87; stroke-dashoffset: -58.87; }
+            100% { stroke-dasharray: 176.62 0; stroke-dashoffset: -117.75; }
+        }
+
+        /* Animasi untuk persegi */
+        .square-shape-animation {
+            animation: square-draw-erase 3s infinite linear;
+        }
+        @keyframes square-draw-erase {
+            0% { stroke-dasharray: 0 200; stroke-dashoffset: 0; }
+            25% { stroke-dasharray: 50 150; stroke-dashoffset: 0; }
+            50% { stroke-dasharray: 100 100; stroke-dashoffset: -50; }
+            75% { stroke-dasharray: 150 50; stroke-dashoffset: -100; }
+            100% { stroke-dasharray: 200 0; stroke-dashoffset: -150; }
+        }
