@@ -13,6 +13,42 @@
 </head>
 <body class="font-inter bg-gray-900 text-gray-100 min-h-screen relative">
 
+    <!-- Loading Section -->
+    <div id="loading-section" class="flex flex-col items-center justify-center min-h-screen w-full transition-opacity duration-500 ease-out">
+        <h1 class="text-white text-4xl font-bold mb-12">Loading Animation</h1>
+
+        <div class="flex flex-col items-center justify-center p-8 bg-gray-800 rounded-xl shadow-lg">
+            <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+                <!-- Circle Shape -->
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="squid-game-shape" id="circle-shape" cx="50" cy="50" r="30" />
+                    </svg>
+                </div>
+
+                <!-- Triangle Shape -->
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <polygon class="squid-game-shape" id="triangle-shape" points="50,20 80,70 20,70" />
+                    </svg>
+                </div>
+
+                <!-- Square Shape -->
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <rect class="squid-game-shape" id="square-shape" x="25" y="25" width="50" height="50" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Percentage Text -->
+            <p id="percentage-text" class="text-white text-3xl font-bold loading-text-percentage">0%</p>
+        </div>
+    </div>
+
+    </div>
+
+
     <!-- Animated Background -->
     <div class="animated-background"></div>
 
@@ -67,7 +103,7 @@
         </div>
     </div>
 
-    <main class="relative z-10 pt-24 pb-12 px-4 md:px-8 lg:px-16 container mx-auto">
+    <main id="main-content" class="relative z-10 pt-24 pb-12 px-4 md:px-8 lg:px-16 container mx-auto hidden flex flex-col items-center justify-center min-h-screen w-full p-8 text-center">
         <div id="main_page" class="bg-gray-800 bg-opacity-70 p-6 md:p-10 rounded-lg shadow-xl backdrop-blur-sm text-center">
             <h1 id="judul" class="text-4xl md:text-5xl font-extrabold mb-4 text-white animate-fade-in">
                 <span class="text-blue-400">Kleon Alfeus Effendi</span>
