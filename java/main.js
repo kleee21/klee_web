@@ -203,3 +203,80 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     
+        // Get elements
+        const percentageText = document.getElementById('percentage-text');
+        const loadingSection = document.getElementById('loading-section');
+        const mainContent = document.getElementById('main-content');
+
+        // Get references to the shape elements
+        const circleShape = document.getElementById('circle-shape');
+        const triangleShape = document.getElementById('triangle-shape');
+        const squareShape = document.getElementById('square-shape');
+
+        let progress = 0;
+        const duration = 3000; // Durasi animasi persentase (3 detik)
+        const delayBeforeTransition = 4000; // Jeda 4 detik setelah 100% sebelum fade-out
+
+        // Perimeter values for setting full stroke when animation stops
+        const circlePerimeter = 188.5;
+        const trianglePerimeter = 176.62;
+        const squarePerimeter = 200;
+
+        const animatePercentage = () => {
+            const startTime = performance.now();
+
+            const update = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const newProgress = Math.min(100, Math.floor((elapsedTime / duration) * 100));
+
+                if (newProgress > progress) {
+                    progress = newProgress;
+                    percentageText.textContent = `${progress}%`;
+                }
+
+                if (progress < 100) {
+                    requestAnimationFrame(update);
+                } else {
+                    // Ketika loading mencapai 100%
+                    // Hentikan animasi garis dengan menghapus kelas animasi
+                    circleShape.classList.remove('circle-shape-animation');
+                    triangleShape.classList.remove('triangle-shape-animation');
+                    squareShape.classList.remove('square-shape-animation');
+
+                    // Pastikan garis terlihat penuh dengan transisi halus
+                    circleShape.style.strokeDasharray = `${circlePerimeter} 0`;
+                    circleShape.style.strokeDashoffset = '0';
+                    triangleShape.style.strokeDasharray = `${trianglePerimeter} 0`;
+                    triangleShape.style.strokeDashoffset = '0';
+                    squareShape.style.strokeDasharray = `${squarePerimeter} 0`;
+                    squareShape.style.strokeDashoffset = '0';
+
+                    // Tambahkan efek glow ke bentuk
+                    circleShape.classList.add('shape-glow-effect');
+                    triangleShape.classList.add('shape-glow-effect');
+                    squareShape.classList.add('shape-glow-effect');
+
+                    // Beri jeda 4 detik, lalu mulai fade-out loading section
+                    setTimeout(() => {
+                        loadingSection.style.opacity = '0'; // Memulai transisi fade-out
+
+                        // Setelah fade-out selesai (durasi 0.5s), sembunyikan sepenuhnya
+                        setTimeout(() => {
+                            loadingSection.classList.add('hidden'); // Sembunyikan bagian loading
+                            mainContent.classList.remove('hidden'); // Tampilkan bagian konten utama
+                            console.log('Loading selesai! Konten utama ditampilkan.');
+                        }, 500); // Durasi transisi opacity
+                    }, delayBeforeTransition); // Jeda sebelum fade-out dimulai
+                }
+            };
+
+            requestAnimationFrame(update);
+        };
+
+        // Mulai animasi persentase dan terapkan kelas animasi garis ketika halaman dimuat
+        window.onload = () => {
+            circleShape.classList.add('circle-shape-animation');
+            triangleShape.classList.add('triangle-shape-animation');
+            squareShape.classList.add('square-shape-animation');
+            animatePercentage();
+        };
