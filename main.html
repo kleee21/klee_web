@@ -127,6 +127,30 @@
                 When I’m not playing guitar, I enjoy immersing myself in all kinds of music, from rock and indie to classical and jazz. Discovering new artists and genres keeps me inspired and fuels my passion for music even more. I believe that music is a universal language that can evoke powerful emotions and tell stories in ways that nothing else can. Beyond just listening, I love analyzing how different elements come together to create something unique and impactful. I’m always eager to learn more, not just about playing instruments, but about music production, songwriting, and the different ways it influences people. Music will always be a central part of who I am, and I look forward to continuing this journey as I grow.
             </p>
         </div>
+
+           <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- Audio Controls - Hanya ikon di pojok kanan bawah -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Volume Slider Container (initially hidden) -->
+        <div id="volumeSliderContainer" class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 p-3 rounded-lg shadow-xl hidden w-48">
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <!-- Play/Pause Button sebagai ikon -->
+        <button id="playPauseButton" class="bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
+            <svg id="playIcon" class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+            </svg>
+            <svg id="pauseIcon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
     </main>
 
     <footer class="bg-gray-900 text-gray-400 py-8 relative overflow-hidden">
