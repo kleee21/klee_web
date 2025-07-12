@@ -280,3 +280,145 @@ document.addEventListener("DOMContentLoaded", function () {
             squareShape.classList.add('square-shape-animation');
             animatePercentage();
         };
+
+ // audio
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const volumeSliderContainer = document.getElementById('volumeSliderContainer');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        let isPlaying = false; // Melacak status pemutaran saat ini
+        const initialVolume = 0.5; // Volume target setelah fade-in
+        const fadeInDuration = 3000; // Durasi fade-in dalam milidetik (3 detik)
+        const startDelay = 9000; // Penundaan sebelum mulai bermain dalam milidetik (9 detik)
+
+        let hideTimeout; // Untuk mengelola penundaan penyembunyian slider volume
+
+        // Set volume awal dari slider
+        backgroundMusic.volume = volumeSlider.value;
+
+        // Fungsi untuk menampilkan slider volume
+        function showVolumeSlider() {
+            clearTimeout(hideTimeout); // Hapus timeout penyembunyian yang ada
+            volumeSliderContainer.classList.remove('hidden');
+        }
+
+        // Fungsi untuk menyembunyikan slider volume dengan penundaan
+        function hideVolumeSliderWithDelay() {
+            hideTimeout = setTimeout(() => {
+                volumeSliderContainer.classList.add('hidden');
+            }, 300); // Penundaan 300ms sebelum menyembunyikan
+        }
+
+        // Fungsi untuk mengalihkan putar/jeda
+        function togglePlayPause() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                playIcon.classList.remove('hidden'); // Tampilkan ikon putar
+                pauseIcon.classList.add('hidden');    // Sembunyikan ikon jeda
+            } else {
+                // Coba putar musik. Ini mungkin gagal jika tidak dimulai oleh gestur pengguna.
+                const playPromise = backgroundMusic.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Pemutaran dimulai dengan sukses
+                        playIcon.classList.add('hidden');     // Sembunyikan ikon putar
+                        pauseIcon.classList.remove('hidden'); // Tampilkan ikon jeda
+
+                        // Terapkan fade-in hanya jika volume saat ini 0 (berarti baru mulai atau diatur ulang)
+                        if (backgroundMusic.volume === 0) {
+                            fadeInMusic();
+                        } else {
+                            // Jika sudah diputar sebelumnya (misal, dijeda lalu diputar lagi), atur langsung ke volume target
+                            backgroundMusic.volume = initialVolume;
+                        }
+                    })
+                    .catch(error => {
+                        // Autoplay dicegah. Tampilkan pesan atau tangani dengan anggun.
+                        console.error("Autoplay dicegah:", error);
+                        // Pastikan ikon play terlihat jika pemutaran gagal
+                        playIcon.classList.remove('hidden');
+                        pauseIcon.classList.add('hidden');
+                        isPlaying = false;
+                    });
+                }
+            }
+            isPlaying = !isPlaying; // Perbarui status
+        }
+
+        // Fungsi untuk efek fade-in
+        function fadeInMusic() {
+            backgroundMusic.volume = 0; // Mulai dari volume 0
+            const volumeStep = initialVolume / (fadeInDuration / 100); // Hitung langkah volume per 100ms
+            let currentVolume = 0;
+
+            const fadeInterval = setInterval(() => {
+                if (currentVolume < initialVolume) {
+                    currentVolume += volumeStep;
+                    if (currentVolume > initialVolume) {
+                        currentVolume = initialVolume; // Pastikan tidak melebihi volume target
+                    }
+                    backgroundMusic.volume = currentVolume;
+                } else {
+                    clearInterval(fadeInterval); // Hentikan interval setelah mencapai volume target
+                }
+            }, 100); // Perbarui volume setiap 100ms
+        }
+
+        // Event listener untuk tombol putar/jeda
+        playPauseButton.addEventListener('click', togglePlayPause);
+
+        // Event listener untuk slider volume
+        volumeSlider.addEventListener('input', () => {
+            backgroundMusic.volume = volumeSlider.value;
+        });
+
+        // Event listener untuk menampilkan/menyembunyikan slider volume
+        playPauseButton.addEventListener('mouseover', showVolumeSlider);
+        playPauseButton.addEventListener('mouseout', hideVolumeSliderWithDelay);
+        volumeSliderContainer.addEventListener('mouseover', showVolumeSlider);
+        volumeSliderContainer.addEventListener('mouseout', hideVolumeSliderWithDelay);
+
+
+        // Dengarkan saat audio benar-benar mulai diputar
+        backgroundMusic.addEventListener('play', () => {
+            isPlaying = true;
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+        });
+
+        // Dengarkan saat audio dijeda
+        backgroundMusic.addEventListener('pause', () => {
+            isPlaying = false;
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        });
+
+        // Autoplay dengan penundaan saat halaman dimuat
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const playPromise = backgroundMusic.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Pemutaran dimulai dengan sukses, mulai fade-in
+                        fadeInMusic(); // Ini akan menangani fade-in awal
+                        isPlaying = true;
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                    })
+                    .catch(error => {
+                        // Autoplay dicegah. Tetapkan ikon putar sebagai default.
+                        console.error("Autoplay dicegah setelah penundaan:", error);
+                        isPlaying = false;
+                        playIcon.classList.remove('hidden');
+                        pauseIcon.classList.add('hidden');
+                        // Pastikan volume diatur ulang ke 0 jika autoplay gagal, agar fadeInMusic berfungsi pada klik pengguna
+                        backgroundMusic.volume = 0;
+                    });
+                }
+            }, startDelay); // Tunda pemutaran selama 'startDelay' milidetik
+        });
