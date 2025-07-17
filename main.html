@@ -13,12 +13,14 @@
 </head>
 <body class="font-inter bg-gray-900 text-gray-100 min-h-screen relative">
 
-    <!-- Loading Section -->
+<!-- Loading Section -->
+    <!-- Bagian ini akan ditampilkan pertama kali saat halaman dimuat -->
     <div id="loading-section" class="flex flex-col items-center justify-center min-h-screen w-full transition-opacity duration-500 ease-out">
         <h1 class="text-white text-4xl font-bold mb-12">Loading Animation</h1>
 
         <div class="flex flex-col items-center justify-center p-8 bg-gray-800 rounded-xl shadow-lg">
-            <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+            <!-- Menggunakan flex-col secara default untuk mobile dan md:flex-row untuk desktop -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
                 <!-- Circle Shape -->
                 <div class="relative w-32 h-32 flex items-center justify-center">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -45,9 +47,6 @@
             <p id="percentage-text" class="text-white text-3xl font-bold loading-text-percentage">0%</p>
         </div>
     </div>
-
-    </div>
-
 
     <!-- Animated Background -->
     <div class="animated-background"></div>
