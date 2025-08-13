@@ -1,74 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/login.css">
     <title>Login</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style/login.css">
 </head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen">
 
-<body>
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
 
     <!-- Login Form -->
-    <div id="loginForm" class="login-container">
-        <h2>Login</h2>
-        <form id="loginFormAction" action="#" method="post">
+    <div id="loginForm" class="bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-2xl w-full max-w-md backdrop-blur-sm transform transition-all duration-500 ease-in-out scale-100 opacity-100 hover:scale-105 hover:shadow-cyan-500/50">
+        <h2 class="text-3xl font-extrabold mb-6 text-center text-white">Login</h2>
+        <form id="loginFormAction" class="space-y-6">
             <div class="input-group">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" placeholder="Enter your email">
+                <label for="loginEmail" class="block text-sm font-medium text-gray-300 mb-2">Email:</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email"
+                       class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out">
             </div>
-            <div class="input-group password-container">
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" placeholder="Enter your password">
-                <button type="button" id="toggleLoginPassword" class="show-password-btn">&#128065;</button>
+            <div class="input-group relative">
+                <label for="loginPassword" class="block text-sm font-medium text-gray-300 mb-2">Password:</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password"
+                       class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 transition duration-300 ease-in-out">
+                <button type="button" id="toggleLoginPassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 focus:outline-none transition duration-200">
+                    &#128065;
+                </button>
             </div>
-            <button type="submit" class="submit-btn">Login</button>
+            <button type="submit"
+                    class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900">
+                Login
+            </button>
 
-            <div class="login-links">
-                <p><a href="#" id="forgotPasswordLink" class="forgot-password-link">Forgot your password?</a></p>
-                <p><a href="#" id="signUpLink" class="signup-link">Don't have an account? Sign up here</a></p>
+            <div class="text-center text-sm space-y-2 mt-4">
+                <p><a href="#" id="forgotPasswordLink" class="text-blue-400 hover:text-blue-300 transition duration-200">Forgot your password?</a></p>
+                <p>Don't have an account? <a href="#" id="signUpLink" class="text-blue-400 hover:text-blue-300 transition duration-200">Sign up here</a></p>
             </div>
         </form>
     </div>
 
     <!-- Signup Form -->
-    <div id="signupForm" class="login-container" style="display: none;">
-        <h2>Sign Up</h2>
-        <form id="signupFormAction" action="#" method="post">
+    <div id="signupForm" class="bg-gray-800 bg-opacity-70 p-8 rounded-lg shadow-2xl w-full max-w-md backdrop-blur-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform transition-all duration-500 ease-in-out scale-90 opacity-0 hidden">
+        <h2 class="text-3xl font-extrabold mb-6 text-center text-white">Sign Up</h2>
+        <form id="signupFormAction" class="space-y-6">
             <div class="input-group">
-                <label for="signupEmail">Email:</label>
-                <input type="email" id="signupEmail" placeholder="Enter your email">
+                <label for="signupEmail" class="block text-sm font-medium text-gray-300 mb-2">Email:</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email"
+                       class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out">
             </div>
-            <div class="input-group password-container">
-                <label for="signupPassword">Password:</label>
-                <input type="password" id="signupPassword" placeholder="Enter your password">
-                <button type="button" id="toggleSignupPassword" class="show-password-btn">&#128065;</button>
+            <div class="input-group relative">
+                <label for="signupPassword" class="block text-sm font-medium text-gray-300 mb-2">Password:</label>
+                <input type="password" id="signupPassword" placeholder="Enter your password"
+                       class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 transition duration-300 ease-in-out">
+                <button type="button" id="toggleSignupPassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 focus:outline-none transition duration-200">
+                    &#128065;
+                </button>
             </div>
-            <button type="submit" class="submit-btn">Sign Up</button>
+            <button type="submit"
+                    class="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900">
+                Sign Up
+            </button>
 
-            <div class="signup-links">
-                <p><a href="#" id="loginLink" class="signup-link">Already have an account? Login here</a></p>
+            <div class="text-center text-sm mt-4">
+                <p>Already have an account? <a href="#" id="loginLink" class="text-blue-400 hover:text-blue-300 transition duration-200">Login here</a></p>
             </div>
         </form>
     </div>
 
     <!-- Reset Password Popup -->
-    <div id="resetPasswordPopup" style="display: none;">
-        <div class="popup-content">
-            <form id="resetPasswordFormAction">
-                <input type="email" id="resetEmail" placeholder="Enter your email" required />
-                <input type="password" id="resetNewPassword" placeholder="Enter new password" required />
-                <button type="button" id="toggleResetPassword">👁️</button>
-                <button type="submit">Reset Password</button>
+    <div id="resetPasswordPopup" class="custom-modal">
+        <div class="custom-modal-content">
+            <h3 class="text-xl font-bold mb-4">Reset Password</h3>
+            <form id="resetPasswordFormAction" class="space-y-4">
+                <input type="email" id="resetEmail" placeholder="Enter your email" required
+                       class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out">
+                <div class="relative">
+                    <input type="password" id="resetNewPassword" placeholder="Enter new password" required
+                           class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 transition duration-300 ease-in-out">
+                    <button type="button" id="toggleResetPassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 focus:outline-none transition duration-200">
+                        &#128065;
+                    </button>
+                </div>
+                <button type="submit"
+                        class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900">
+                    Reset Password
+                </button>
             </form>
-            <button type="button" id="closeResetPasswordPopupBtn">Close</button>
+            <button type="button" id="closeResetPasswordPopupBtn" class="custom-modal-close-btn mt-4">Close</button>
         </div>
     </div>
-    <script src="java/login.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <!-- Firebase Authentication -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-</body>
 
+    <!-- Custom Alert Modal Structure -->
+    <div id="customAlertModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <h3 id="customAlertTitle"></h3>
+            <p id="customAlertMessage"></p>
+            <button id="customAlertCloseBtn" class="custom-modal-close-btn">OK</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (ensure these are loaded before your custom script for proper execution) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <!-- External JavaScript -->
+    <script src="java/login.js"></script>
+</body>
 </html>
