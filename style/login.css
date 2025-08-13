@@ -26,7 +26,6 @@ body {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    /* animation: moveParticles linear infinite; - This will be added dynamically by JS */
 }
 
 /* Custom Modal for Alerts */
@@ -81,4 +80,13 @@ body {
 
 .custom-modal-close-btn:hover {
     background-color: #64748b;
+}
+
+/* Center text in both forms */
+#loginForm, #signupForm {
+    text-align: center; /* Center text in both forms */
+}
+
+.input-group {
+    text-align: left; /* Align labels to the left */
 }
